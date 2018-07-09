@@ -23,6 +23,7 @@ public class DeformationView extends View {
     private Context context;
 
     private Scroller scroller;
+    private int ANGLE = 0;
 
     public DeformationView(Context context) {
         super(context);
@@ -166,6 +167,7 @@ public class DeformationView extends View {
 //                    invalidate();
 //                    list.add(moY);
 //                }
+                ANGLE ++;
                 break;
             case MotionEvent.ACTION_UP:
 
@@ -175,6 +177,8 @@ public class DeformationView extends View {
                         parent.getScrollY(),
                         -parent.getScrollX(),
                         -parent.getScrollY());
+
+                ANGLE = 0;
 
 //                int scrollX = getScrollX();
 //                int delta = (int) moX - scrollX;

@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.chenqi.bueatifulview.DeformationView
-        android:layout_width="80dp"
+    <com.chenqi.bueatifulview.GameHandleView
+        android:layout_width="wrap_content"
         android:id="@+id/a"
-        android:layout_height="80dp"
-        android:background="@color/colorAccent"
-        android:layout_margin="50dp" />
-
+        android:layout_height="wrap_content"
+        />
+    <!--<com.chenqi.bueatifulview.MyProgressBar-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
 </LinearLayout>

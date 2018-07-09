@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
+//apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 26
 
 
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -27,19 +27,19 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.code.gson:gson:2.8.4'
 }
 
-publish {
-    repoName = 'AndroidViewForChenqi'//远程仓库名字,不指明，默认是上传到maven
-    userOrg = 'chenqi'//bintray.com的用户名
-    groupId = 'com.chenqi.AndroidViewForChenqi'//jcenter上的路径
-    artifactId = 'GesturePassWordView'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = '陈奇的手势密码'//描述，不重要
-    website = ''//项目主页
-}
+//publish {
+//    repoName = 'AndroidViewForChenqi'//远程仓库名字,不指明，默认是上传到maven
+//    userOrg = 'chenqi'//bintray.com的用户名
+//    groupId = 'com.chenqi.AndroidViewForChenqi'//jcenter上的路径
+//    artifactId = 'GesturePassWordView'//项目名称
+//    publishVersion = '1.0.2'//版本号
+//    desc = '陈奇的手势密码'//描述，不重要
+//    website = 'https://github.com/ChenQiJimme/BeautifulView/tree/master/gesturepasswordview'//项目主页
+//}

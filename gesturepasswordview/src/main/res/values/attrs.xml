@@ -29,23 +29,6 @@
         <attr name="maxPwdSize" format="integer"/>
         <attr name="maxCheckTimes" format="integer"/>
         <attr name="lineStrokeWidth" format="integer"/>
-
         <!--<attr name=""-->
-    </declare-styleable>
-
-    <declare-styleable name="BubbleProgressBar">
-        <attr name="bubbleDraw" format="reference" />
-        <attr name="bTextSize" format="float" />
-        <attr name="sizeMax" format="integer" />
-        <attr name="sizeMin" format="integer" />
-        <attr name="pressedShadow" format="float" />
-        <attr name="unPressedShadow" format="float" />
-        <attr name="pressedWidth" format="float" />
-        <attr name="pressedHeight" format="float" />
-        <attr name="unPressedWidth" format="float" />
-        <attr name="unPressedHeight" format="float" />
-        <attr name="pressedColor" format="reference" />
-        <attr name="textcolor" format="reference" />
-        <attr name="backGround" format="reference" />
     </declare-styleable>
 </resources>

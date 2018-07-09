@@ -39,7 +39,7 @@ publish{
     userOrg = 'chenqi'//bintray.com的用户名
     groupId = 'com.chenqi'//jcenter上的路径
     artifactId = 'first-jar'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.1.8'//版本号
     desc = '一个控件阴影效果,支持阴影大小和颜色设置,可以设置控件上下的阴影'//描述，不重要
-    website = ''//项目主页
+    website = 'https://github.com/ChenQiJimme/BeautifulView/tree/master/mylibrary'//项目主页
 }
