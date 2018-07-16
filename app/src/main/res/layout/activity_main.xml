@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.chenqi.bueatifulview.GameHandleView
-        android:layout_width="wrap_content"
+
+    <com.chenqi.bueatifulview.HonorProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.chenqi.bueatifulview.HonorProgressBar>
+
+
+    <com.chenqi.bueatifulview.PushRefreshView
+        android:layout_width="match_parent"
         android:id="@+id/a"
+        android:background="@color/transparent"
         android:layout_height="wrap_content"
-        />
-    <!--<com.chenqi.bueatifulview.MyProgressBar-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" />-->
-</LinearLayout>
+        android:visibility="gone">
+
+    </com.chenqi.bueatifulview.PushRefreshView>
+
+    <!--<Button-->
+    <!--android:background="@drawable/ic_"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="fdsafdsafs" />-->
+</RelativeLayout>

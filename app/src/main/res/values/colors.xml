@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="half_black">#80000000</color>
+    <color name="halfColorAccent">#80FF4081</color>
+    <color name="blue_0097e5">#0097e5</color>
 </resources>
