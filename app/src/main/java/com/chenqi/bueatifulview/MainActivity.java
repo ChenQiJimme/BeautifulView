@@ -5,11 +5,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.chenqi.gesturepasswordview.view.GesturePassWordView;
-
 public class MainActivity extends AppCompatActivity {
     //    DeformationView view;
-    GesturePassWordView gesturePassWordView;
     private GameHandleView view;
     PushRefreshView refreshView;
     Toast toast;
@@ -17,18 +14,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        refreshView = findViewById(R.id.a);
-        refreshView.setListener(new PushRefreshView.RefreshStatusListener() {
-            @Override
-            public void start(PushRefreshView view) {
-                showToast("刷新开始");
-            }
-
-            @Override
-            public void stop() {
-                showToast("刷新结束");
-            }
-        });
+//        refreshView.setListener(new PushRefreshView.RefreshStatusListener() {
+//            @Override
+//            public void start(PushRefreshView view) {
+//                showToast("刷新开始");
+//            }
+//
+//            @Override
+//            public void stop() {
+//                showToast("刷新结束");
+//            }
+//        });
 //        view = findViewById(R.id.a);
 //        view.addMoveListener(new GameHandleView.addMoveListener() {
 //            @Override

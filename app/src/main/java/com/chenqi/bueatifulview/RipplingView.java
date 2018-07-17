@@ -45,7 +45,7 @@ public class RipplingView extends View {
         insidePaint.setAntiAlias(true);
         gudPaint = new Paint();
         gudPaint.setAntiAlias(true);
-        gudPaint.setColor(context.getResources().getColor(R.color.gray_c0));
+        gudPaint.setColor(context.getResources().getColor(R.color.half_black));
 
     }
 

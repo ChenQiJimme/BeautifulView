@@ -21,6 +21,8 @@ public class HonorProgressBar extends View {
     private int rotateRadius = 50;
     private int rotatePregress = 0;
     private int interval = 0;
+    private int centerX;
+    private int centerY;
 
     public HonorProgressBar(Context context) {
         super(context);
@@ -35,7 +37,6 @@ public class HonorProgressBar extends View {
     private void init() {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.BLUE);
-        setLayerType(View.LAYER_TYPE_SOFTWARE, paint);
     }
 
     @Override
@@ -43,17 +44,16 @@ public class HonorProgressBar extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         w = getMeasuredWidth();
         h = getMeasuredHeight();
+        centerX = w / 2;
+        centerY = h / 2;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int centerX = w / 2;
-        int centerY = h / 2;
 
         if (rotatePregress == 0 || rotatePregress % 360 != 0) {
             rotatePregress = rotatePregress + 20;
-            System.out.println("chenqi fdsaf rotatePregress" + rotatePregress);
             interval = interval - 2;//扩大
         } else if (rotatePregress % 360 == 0) {
             interval = interval + 3;//缩小

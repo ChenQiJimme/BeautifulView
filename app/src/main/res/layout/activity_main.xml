@@ -11,15 +11,6 @@
         android:layout_height="match_parent"></com.chenqi.bueatifulview.HonorProgressBar>
 
 
-    <com.chenqi.bueatifulview.PushRefreshView
-        android:layout_width="match_parent"
-        android:id="@+id/a"
-        android:background="@color/transparent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-    </com.chenqi.bueatifulview.PushRefreshView>
-
     <!--<Button-->
     <!--android:background="@drawable/ic_"-->
     <!--android:layout_width="wrap_content"-->

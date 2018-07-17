@@ -140,8 +140,6 @@ public class GameHandleView extends View {
             for (int j = 0; j < height / y; j++) {
                 Rect rect = new Rect();
                 rect.set(0, 0, x, y);
-//                Rect rect2 = new Rect();
-//                rect2.set(0, 0, width, 130);
                 RectF rectF = new RectF();
                 rectF.set(x * i, y * j, x + x * i, y + y * j);
                 canvas.drawBitmap(bitmap, rect, rectF, new Paint());
