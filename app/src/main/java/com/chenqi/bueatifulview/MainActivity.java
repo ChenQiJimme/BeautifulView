@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     private GameHandleView view;
     PushRefreshView refreshView;
     Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,5 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public static void main(String[] args) {
+        String dex = "[\\u4e00-\\u9fa5]{1,5}$";//只是汉字
+        String dex3 = "[(\\u4e00-\\u9fa5)|(\\w)]{1,9}$";//汉字和其他字符
+        String match = "jimme_sinn";
+        System.out.println(" match = " + match.matches(dex) + " 校验结果是 --- " + match.matches(dex3) + " --- ");
     }
 }

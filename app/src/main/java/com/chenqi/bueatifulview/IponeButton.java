@@ -16,23 +16,71 @@ import android.view.View;
  * @Package_name: BueatifulView
  */
 public class IponeButton extends View {
+    /**
+     * 内部小圆圈的画笔
+     */
     private Paint circlePaint;
+    /**
+     * 外部边框的画笔
+     */
     private Paint outSidePaint;
+    /**
+     * 覆盖在外部边框的内的画笔
+     */
     private Paint onePaint;
+    /**
+     * 获取到位置坐标
+     */
     private int bodyCenterX, bodyCenterY;
-    private int centerX = 50;
-    private int centerY = 50;
+    /**
+     * 是否已经按下
+     */
     private boolean isDown = false;
+    /**
+     * 是确认还是取消
+     */
     private int times = 0;
+    /**
+     * 是否已经抬起
+     */
     private boolean isUp;
+    /**
+     * 按下的次数
+     */
     private int downtimes;
-    private int inSideLength = 0;
-    private int inSideLength2 = 0;
+    /**
+     * 按下的时候内部的圆圈变长的长度（左边）
+     */
+    private int inSideLeftChangeLength = 0;
+    /**
+     * 按下的时候内部的圆圈变长的长度（右边）
+     */
+    private int inSideRightChangeLength = 0;
+    /**
+     * 屏幕的宽度和高度
+     */
     private int width, height;
-    private int moveX;
+    /**
+     * 移动的距离
+     */
+    private int moveDistance;
+    /**
+     * 外部坐标的半径（画笔的粗细）
+     */
     private int outSideWidth = 50;
+    /**
+     * 内部圆形坐标的半径（画笔的粗细）
+     */
     private int circleWidth = 30;
-    private int length = 0;
+    /**
+     * 覆盖在外部背景内的距离
+     */
+    private int disappearingDistance = 0;
+
+    /**
+     * 修改第二张图的画笔的粗细的变化长度
+     */
+    private int onePaintStrokeWidth;
 
     public IponeButton(Context context) {
         super(context);
@@ -46,14 +94,9 @@ public class IponeButton extends View {
 
     private void init() {
         circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        // 设置画笔遮罩滤镜  ,传入度数和样式
         circlePaint.setColor(Color.WHITE);
-        circlePaint.setShadowLayer(5, 0, 0, Color.BLACK);
         circlePaint.setStrokeWidth(circleWidth);
         circlePaint.setStrokeCap(Paint.Cap.ROUND);
-//        // 设置画笔遮罩滤镜 ,传入度数和样式
-//        circlePaint.setMaskFilter(new BlurMaskFilter(10, BlurMaskFilter.Blur.NORMAL));
-//        circlePaint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.SOLID));
 
         outSidePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         outSidePaint.setColor(getResources().getColor(R.color.gray_D1D1D1));
@@ -76,8 +119,6 @@ public class IponeButton extends View {
         bodyCenterY = height / 2;
     }
 
-    int grayX;
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -85,41 +126,41 @@ public class IponeButton extends View {
         int outSideStopX = width - outSideWidth / 2;
 
         if (isUp) {
-            if (inSideLength > 0) {
-                inSideLength = inSideLength - 5;
+            if (inSideLeftChangeLength > 0) {
+                inSideLeftChangeLength = inSideLeftChangeLength - 5;
             }
-            if (inSideLength2 > 0) {
-                inSideLength2 = inSideLength2 - 5;
+            if (inSideRightChangeLength > 0) {
+                inSideRightChangeLength = inSideRightChangeLength - 5;
             }
             if (times % 2 != 0) {
-                if (moveX < (outSideStopX - outSideStartX)) {
-                    moveX = moveX + 10;
+                if (moveDistance < (outSideStopX - outSideStartX)) {
+                    moveDistance = moveDistance + 10;
                 } else {
-                    moveX = (outSideStopX - outSideStartX);
+                    moveDistance = (outSideStopX - outSideStartX);
                     outSidePaint.setColor(Color.GREEN);
                     isUp = false;
                 }
-                if (grayX < outSideWidth) {
-                    grayX = grayX + 10;
+                if (onePaintStrokeWidth < outSideWidth) {
+                    onePaintStrokeWidth = onePaintStrokeWidth + 10;
                 }
-                if (length < bodyCenterY) {
-                    length = length + 10;
+                if (disappearingDistance < bodyCenterY) {
+                    disappearingDistance = disappearingDistance + 10;
                 }
                 //绿色出来
                 postInvalidateDelayed(10L);
             } else {
-                if (moveX > 0) {
-                    moveX = moveX - 10;
+                if (moveDistance > 0) {
+                    moveDistance = moveDistance - 10;
                 } else {
-                    moveX = 0;
+                    moveDistance = 0;
                     isUp = false;
                     outSidePaint.setColor(getResources().getColor(R.color.gray_D1D1D1));
                 }
-                if (grayX > 0) {
-                    grayX = grayX - 10;
+                if (onePaintStrokeWidth > 0) {
+                    onePaintStrokeWidth = onePaintStrokeWidth - 10;
                 }
-                if (length > 0) {
-                    length = length - 10;
+                if (disappearingDistance > 0) {
+                    disappearingDistance = disappearingDistance - 10;
                 }
                 postInvalidateDelayed(10L);
             }
@@ -128,20 +169,20 @@ public class IponeButton extends View {
 
         if (isDown) {
             if (downtimes % 2 != 0) {
-                if (grayX < outSideWidth) {
-                    grayX = grayX + 10;
+                if (onePaintStrokeWidth < outSideWidth) {
+                    onePaintStrokeWidth = onePaintStrokeWidth + 10;
                 }
-                if (length < bodyCenterY) {
-                    length = length + 10;
+                if (disappearingDistance < bodyCenterY) {
+                    disappearingDistance = disappearingDistance + 10;
                 }
-                inSideLength2 = 0;
-                if (inSideLength < 30) {
-                    inSideLength = inSideLength + 5;
+                inSideRightChangeLength = 0;
+                if (inSideLeftChangeLength < 30) {
+                    inSideLeftChangeLength = inSideLeftChangeLength + 5;
                 }
             } else {
-                inSideLength = 0;
-                if (inSideLength2 < 30) {
-                    inSideLength2 = inSideLength2 + 5;
+                inSideLeftChangeLength = 0;
+                if (inSideRightChangeLength < 30) {
+                    inSideRightChangeLength = inSideRightChangeLength + 5;
                 }
             }
             postInvalidateDelayed(10L);
@@ -150,16 +191,16 @@ public class IponeButton extends View {
         canvas.drawLine(outSideStartX, bodyCenterY, outSideStopX, bodyCenterY, outSidePaint);
 
 
-        if (outSideWidth - grayX != 0) {
-            onePaint.setStrokeWidth(outSideWidth - grayX);
-            System.out.println("chenqi grayX" + grayX);
-            canvas.drawLine(outSideStartX + length, bodyCenterY, outSideStopX - length, bodyCenterY, onePaint);
+        if (outSideWidth - onePaintStrokeWidth != 0) {
+            onePaint.setStrokeWidth(outSideWidth - onePaintStrokeWidth);
+            canvas.drawLine(outSideStartX + disappearingDistance, bodyCenterY, outSideStopX - disappearingDistance, bodyCenterY, onePaint);
         }
 
-        int circleStartX = (outSideWidth / 2) + moveX - inSideLength2;
-        int circleStopX = (outSideWidth / 2) + 1 + moveX + inSideLength;
+        int circleStartX = (outSideWidth / 2) + moveDistance - inSideRightChangeLength;
+        int circleStopX = (outSideWidth / 2) + 1 + moveDistance + inSideLeftChangeLength;
         int circleStopY = bodyCenterY;
         int circleStartY = bodyCenterY;
+
         canvas.drawLine(circleStartX, circleStartY, circleStopX, circleStopY, circlePaint);
     }
 
