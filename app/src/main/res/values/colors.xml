@@ -6,4 +6,9 @@
     <color name="half_black">#80000000</color>
     <color name="halfColorAccent">#80FF4081</color>
     <color name="blue_0097e5">#0097e5</color>
+    <color name="black_26000000">#26000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_FCFCFC">#FCFCFC</color>
+    <color name="gray_E3E3E3">#E3E3E3</color>
+    <color name="gray_D1D1D1">#D1D1D1</color>
 </resources>

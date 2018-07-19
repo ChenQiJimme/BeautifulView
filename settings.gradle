@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', ':gesturepasswordview'
+include ':app', ':mylibrary', ':gesturepasswordview', ':textlibrary'
